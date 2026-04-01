@@ -63,3 +63,15 @@ export class Minute extends Time_Unit {
         return new Minute(this.value);
     }
 }
+
+export class Duration {
+    private readonly milliseconds: Millisecond;
+    private readonly seconds: Second;
+    private readonly minutes: Minute;
+
+    public constructor({ milliseconds, seconds, minutes }: { milliseconds?: Time_Unit | number; seconds?: Time_Unit | number; minutes?: Time_Unit | number; }) {
+        this.milliseconds = milliseconds instanceof Time_Unit ? milliseconds.to_milliseconds() : new Millisecond(milliseconds ?? 0);
+        this.seconds = seconds instanceof Time_Unit ? seconds.to_seconds() : new Second(seconds ?? 0);
+        this.minutes = minutes instanceof Time_Unit ? minutes.to_minutes() : new Minute(minutes ?? 0);
+    }
+}
