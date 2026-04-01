@@ -29,3 +29,15 @@ export class Year extends Calendar_Unit {
         super(number);
     }
 }
+
+export class Date {
+    private readonly day: Day;
+    private readonly month: Month;
+    private readonly year: Year;
+
+    public constructor({ day, month, year }: { day: Day; month: Month; year: Year; }) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+}
