@@ -14,8 +14,12 @@ abstract class Time_Unit {
 
 export abstract class Immutable_Time_Unit extends Time_Unit {
     public readonly mutability: "immutable" = "immutable" as const;
+
+    public abstract as_mutable(): Mutable_Time_Unit;
 }
 
 export abstract class Mutable_Time_Unit extends Time_Unit {
     public readonly mutability: "mutable" = "mutable" as const;
+
+    public abstract as_immutable(): Immutable_Time_Unit;
 }
