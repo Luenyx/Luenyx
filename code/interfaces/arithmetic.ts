@@ -1,7 +1,7 @@
-interface Addable<Operand, Response> {
+export interface Addable<Operand, Response> {
     add(request: { operand: Operand; } | { operands: Operand[]; }): Response;
 }
 
-interface Subtractable<Operand, Response> {
+export interface Subtractable<Operand, Response> {
     subtract(request: { operand: Operand; } | { operands: Operand[]; }): Response;
 }
