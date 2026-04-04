@@ -1,6 +1,8 @@
 import { Immutable_Time_Unit } from "../base/immutable_time_unit.ts";
 import { Mutable_Time_Unit } from "../base/mutable_time_unit.ts";
 import type { Mutability } from "../../../core/mutability/mutability.ts";
+import { Immutable_Second } from "./second.ts";
+import { Immutable_Minute } from "./minute.ts";
 
 export class Immutable_Millisecond extends Immutable_Time_Unit {
     public readonly type: string = "millisecond" as const;
@@ -9,6 +11,14 @@ export class Immutable_Millisecond extends Immutable_Time_Unit {
 
     public as_milliseconds(): Immutable_Millisecond {
         return new Immutable_Millisecond(this.value);
+    }
+
+    public as_seconds(): Immutable_Second {
+        return new Immutable_Second(this.value / 1_000);
+    }
+
+    public as_minutes(): Immutable_Minute {
+        return new Immutable_Minute(this.value / 60_000);
     }
 
     public as_mutable(): Mutable_Millisecond {
@@ -23,6 +33,14 @@ export class Mutable_Millisecond extends Mutable_Time_Unit {
 
     public as_milliseconds(): Immutable_Millisecond {
         return new Immutable_Millisecond(this.value);
+    }
+
+    public as_seconds(): Immutable_Second {
+        return new Immutable_Second(this.value / 1_000);
+    }
+
+    public as_minutes(): Immutable_Minute {
+        return new Immutable_Minute(this.value / 60_000);
     }
 
     public as_immutable(): Immutable_Millisecond {
