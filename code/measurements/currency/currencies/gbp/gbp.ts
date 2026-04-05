@@ -1,6 +1,6 @@
 import { Immutable } from "../../../../core/mutability/immutable.ts";
-import { Immutable_Penny, Mutable_Penny } from "./units/penny.ts"
-import { Immutable_Pound, Mutable_Pound } from "./units/pound.ts"
+import { Immutable_Pennies, Mutable_Pennies } from "./units/pennies.ts"
+import { Immutable_Pounds, Mutable_Pounds } from "./units/pounds.ts"
 import { Mutable } from "../../../../core/mutability/mutable.ts";
 import type { Mutability } from "../../../../core/mutability/mutability.ts";
 
@@ -12,12 +12,12 @@ type Gbp_Construction_Argument = {
 export class Immutable_Gbp implements Immutable<Mutable_Gbp> {
     public readonly type: string = "gbp" as const;
     public readonly mutability: "immutable" = "immutable" as const;
-    private readonly pennies: Immutable_Penny;
-    private readonly pounds: Immutable_Pound;
+    private readonly pennies: Immutable_Pennies;
+    private readonly pounds: Immutable_Pounds;
 
     public constructor({ pennies, pounds }: Gbp_Construction_Argument) {
-        this.pennies = new Immutable_Penny(pennies ?? 0);
-        this.pounds = new Immutable_Pound(pounds ?? 0);
+        this.pennies = new Immutable_Pennies(pennies ?? 0);
+        this.pounds = new Immutable_Pounds(pounds ?? 0);
     }
 
     public as_mutable(): Mutable_Gbp {
@@ -28,12 +28,12 @@ export class Immutable_Gbp implements Immutable<Mutable_Gbp> {
 export class Mutable_Gbp implements Mutable<Immutable_Gbp> {
     public readonly type: string = "gbp" as const;
     public readonly mutability: "mutable" = "mutable" as const;
-    private readonly pennies: Mutable_Penny;
-    private readonly pounds: Mutable_Pound;
+    private readonly pennies: Mutable_Pennies;
+    private readonly pounds: Mutable_Pounds;
 
     public constructor({ pennies, pounds }: Gbp_Construction_Argument) {
-        this.pennies = new Mutable_Penny(pennies ?? 0);
-        this.pounds = new Mutable_Pound(pounds ?? 0);
+        this.pennies = new Mutable_Pennies(pennies ?? 0);
+        this.pounds = new Mutable_Pounds(pounds ?? 0);
     }
 
     public as_immutable(): Immutable_Gbp {

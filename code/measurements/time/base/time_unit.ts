@@ -1,14 +1,14 @@
 import { Value } from "../../../core/value.ts";
-import type { Immutable_Millisecond } from "../units/millisecond.ts";
-import type { Immutable_Second } from "../units/second.ts";
-import type { Immutable_Minute } from "../units/minute.ts";
+import type { Immutable_Milliseconds } from "../units/milliseconds.ts";
+import type { Immutable_Seconds } from "../units/seconds.ts";
+import type { Immutable_Minutes } from "../units/minutes.ts";
 
 export abstract class Time_Unit extends Value {
     protected constructor(value: number) {super(value);}
 
-    public abstract as_milliseconds(): Immutable_Millisecond;
+    public abstract as_milliseconds(): Immutable_Milliseconds;
 
-    public abstract as_seconds(): Immutable_Second;
+    public abstract as_seconds(): Immutable_Seconds;
 
-    public abstract as_minutes(): Immutable_Minute;
+    public abstract as_minutes(): Immutable_Minutes;
 }
