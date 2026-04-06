@@ -12,13 +12,13 @@ type Date_Constructor_Argument = {
 };
 
 const WEEKDAYS = [
-    { shortened: "Sun", regular: "Sunday" },
     { shortened: "Mon", regular: "Monday" },
     { shortened: "Tue", regular: "Tuesday" },
     { shortened: "Wed", regular: "Wednesday" },
     { shortened: "Thu", regular: "Thursday" },
     { shortened: "Fri", regular: "Friday" },
-    { shortened: "Sat", regular: "Saturday" }
+    { shortened: "Sat", regular: "Saturday" },
+    { shortened: "Sun", regular: "Sunday" }
 ] as const;
 type Weekdays = typeof WEEKDAYS[number]["regular"];
 type Shortened_Weekdays = typeof WEEKDAYS[number]["shortened"];
@@ -34,8 +34,12 @@ class Date_Base {
         this.date = new globalThis.Date(years, months - 1, days);
     }
 
+    public get_weekday_name({ shortened }: { shortened?: false }): Weekdays;
+    public get_weekday_name({ shortened }: { shortened: true }): Shortened_Weekdays;
     public get_weekday_name({ shortened }: { shortened?: boolean }): Weekdays | Shortened_Weekdays {
-        const day = this.date.getDay();
+        let day: number = this.date.getDay();
+        --day;
+        if (day === -1) {day = 6;} // Shifting the builtin Sunday from 0 index back to the end (6) so the type hint starts at Monday.
         if (shortened) {return WEEKDAYS[day].shortened;}
         return WEEKDAYS[day].regular;
     }
