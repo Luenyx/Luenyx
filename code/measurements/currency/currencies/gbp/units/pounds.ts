@@ -3,7 +3,7 @@ import { Mutable_Currency_Unit } from "../../../base/mutable_currency_unit.ts";
 import type { Mutability } from "../../../../../core/mutability/mutability.ts";
 
 export class Immutable_Pounds extends Immutable_Currency_Unit {
-    public readonly type: string = "pound" as const;
+    public readonly type: "pound" = "pound" as const;
 
     public constructor(value: number) {super(value);}
 
@@ -13,7 +13,7 @@ export class Immutable_Pounds extends Immutable_Currency_Unit {
 }
 
 export class Mutable_Pounds extends Mutable_Currency_Unit {
-    public readonly type: string = "pound" as const;
+    public readonly type: "pound" = "pound" as const;
 
     public constructor(value: number) {super(value);}
 

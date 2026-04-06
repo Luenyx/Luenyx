@@ -5,7 +5,7 @@ import { Immutable_Milliseconds } from "./milliseconds.ts";
 import { Immutable_Seconds } from "./seconds.ts";
 
 export class Immutable_Minutes extends Immutable_Time_Unit {
-    public readonly type: string = "minute" as const;
+    public readonly type: "minute" = "minute" as const;
 
     public constructor(number: number) {super(number);}
 
@@ -27,7 +27,7 @@ export class Immutable_Minutes extends Immutable_Time_Unit {
 }
 
 export class Mutable_Minutes extends Mutable_Time_Unit {
-    public readonly type: string = "minute" as const;
+    public readonly type: "minute" = "minute" as const;
 
     public constructor(number: number) {super(number);}
 

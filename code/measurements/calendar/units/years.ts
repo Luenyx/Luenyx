@@ -3,7 +3,7 @@ import { Mutable_Calendar_Unit } from "../base/mutable_calendar_unit.ts";
 import type { Mutability } from "../../../core/mutability/mutability.ts";
 
 export class Immutable_Years extends Immutable_Calendar_Unit {
-    public readonly type: string = "year" as const;
+    public readonly type: "year" = "year" as const;
 
     public constructor(number: number) {super(number);}
 
@@ -13,7 +13,7 @@ export class Immutable_Years extends Immutable_Calendar_Unit {
 }
 
 export class Mutable_Years extends Mutable_Calendar_Unit {
-    public readonly type: string = "year" as const;
+    public readonly type: "year" = "year" as const;
 
     public constructor(number: number) {super(number);}
 

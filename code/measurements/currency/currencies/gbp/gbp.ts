@@ -10,7 +10,7 @@ type Gbp_Construction_Argument = {
 };
 
 export class Immutable_Gbp implements Immutable<Mutable_Gbp> {
-    public readonly type: string = "gbp" as const;
+    public readonly type: "gbp" = "gbp" as const;
     public readonly mutability: "immutable" = "immutable" as const;
     private readonly pennies: Immutable_Pennies;
     private readonly pounds: Immutable_Pounds;
@@ -26,7 +26,7 @@ export class Immutable_Gbp implements Immutable<Mutable_Gbp> {
 }
 
 export class Mutable_Gbp implements Mutable<Immutable_Gbp> {
-    public readonly type: string = "gbp" as const;
+    public readonly type: "gbp" = "gbp" as const;
     public readonly mutability: "mutable" = "mutable" as const;
     private readonly pennies: Mutable_Pennies;
     private readonly pounds: Mutable_Pounds;
