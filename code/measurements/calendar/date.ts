@@ -40,8 +40,10 @@ class Date_Base {
         let day: number = this.date.getDay();
         --day;
         if (day === -1) {day = 6;} // Shifting the builtin Sunday from 0 index back to the end (6) so the type hint starts at Monday.
-        if (shortened) {return WEEKDAYS[day].shortened;}
-        return WEEKDAYS[day].regular;
+        if (!WEEKDAYS[day]) {throw new Error("Invalid day index calculated from the date.");}
+        if (day < 0 || day > 6) {throw new Error("Calculated day index is out of bounds.");}
+        if (shortened) {return WEEKDAYS[day as 0 | 1 | 2 | 3 | 4 | 5 | 6].shortened;}
+        return WEEKDAYS[day as 0 | 1 | 2 | 3 | 4 | 5 | 6].regular;
     }
 
     public get_day_of_month(): number {

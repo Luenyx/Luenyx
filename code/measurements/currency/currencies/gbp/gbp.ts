@@ -1,7 +1,7 @@
-import { Immutable } from "../../../../core/mutability/immutable.ts";
+import type { Immutable } from "../../../../core/mutability/immutable.ts";
 import { Immutable_Pennies, Mutable_Pennies } from "./units/pennies.ts"
 import { Immutable_Pounds, Mutable_Pounds } from "./units/pounds.ts"
-import { Mutable } from "../../../../core/mutability/mutable.ts";
+import type { Mutable } from "../../../../core/mutability/mutable.ts";
 import type { Mutability } from "../../../../core/mutability/mutability.ts";
 
 type Gbp_Construction_Argument = {
