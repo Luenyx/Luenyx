@@ -1,0 +1,14 @@
+{
+    "name": "luenyx_api",
+    "private": true,
+    "type": "module",
+    "exports": {
+        "./code/*": "./code/*"
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    }
+}
